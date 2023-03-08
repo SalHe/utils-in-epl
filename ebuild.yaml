@@ -1,0 +1,33 @@
+project:
+  name: utils-in-epl
+  version: 1.0
+  description: 易语言写的一些小工具
+  author: SalHe
+  repository: https://github.com/SalHe/utils-in-epl.git
+  homepage: https://github.com/SalHe
+scripts:
+  hello: |-
+    @echo off
+    echo Hello ebuild!
+excludes:
+- '**/*.recover.e'
+- '**/*.ecode/**.e'
+- '**/*.代码/**.e'
+includes:
+- '**/*.e'
+exclude-builds:
+- ./scripts/**/*.e
+e2txt:
+  name-style: English
+  generate-e: true
+build:
+  compiler: Static
+targets: 
+  - name: PathShower
+    description: 路径绘制并显示的工具
+    source: ./PathShower.e
+    build:
+      compiler: 静态编译
+    output: PathShower.exe # 当使用相对路径时，将相对于构建输出目录
+    package: false # 是否为易包
+    hooks: # 构建生命周期相关脚本
